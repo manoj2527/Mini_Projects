@@ -1,0 +1,65 @@
+c(i) 
+-----
+layers information:-
+
+1    'imageinput'         Image Input              32x32x1 images with 'zerocenter' normalization
+2    'convlayer1'         Convolution              8 4x4x1 convolutions with stride [1  1] and padding 'same'
+3    'BN1'                Batch Normalization      Batch normalization with 8 channels
+4    'relu_1'             ReLU                     ReLU
+5    'maxlayer1'          Max Pooling              2x2 max pooling with stride [2  2] and padding 'same'
+6    'convlayer2'         Convolution              16 4x4x8 convolutions with stride [1  1] and padding 'same'
+7    'BN2'                Batch Normalization      Batch normalization with 16 channels
+8    'relu_2'             ReLU                     ReLU
+9    'maxlayer2'          Max Pooling              2x2 max pooling with stride [2  2] and padding 'same'
+10   'convlayer3'         Convolution              32 4x4x16 convolutions with stride [1  1] and padding 'same'
+11   'BN3'                Batch Normalization      Batch normalization with 32 channels
+12   'relu_3'             ReLU                     ReLU
+13   'maxlayer3'          Max Pooling              2x2 max pooling with stride [2  2] and padding 'same'
+14   'tconvlayer1'        Transposed Convolution   32 4x4x32 transposed convolutions with stride [2  2] and cropping [1  1  1  1]
+15   'relu_4'             ReLU                     ReLU
+16   'tconvlayer2'        Transposed Convolution   16 4x4x32 transposed convolutions with stride [2  2] and cropping [1  1  1  1]
+17   'relu_5'             ReLU                     ReLU
+18   'tconvlayer3'        Transposed Convolution   8 4x4x16 transposed convolutions with stride [2  2] and cropping [1  1  1  1]
+19   'relu_6'             ReLU                     ReLU
+20   'convlayer4'         Convolution              1 3x3x8 convolutions with stride [1  1] and padding 'same'
+21   'clippedrelu'        Clipped ReLU             Clipped ReLU with ceiling 1
+22   'regressionoutput'   Regression Output        mean-squared-error with response 'Response'
+
+used 3 convolution layers followed by 3 transposed convolution layers with batch normalization before relu
+ReLU is the Activation Function for this network
+
+observations while training:-
+network with batch normalization gives faster convergence than a network without batch normalization and verified the same with this network
+Increasing the number of filters in each layer gives better result than decreasing the number of filters in each layer
+ReLU gives better result than sigmoid for the images
+Network with decay in learning rate gives better result than a network with constant learning rate so in this network i have used decayrate of 0.5 with decay peroid of 20 epochs
+and initial learning rate of 0.004(so faster decrease in loss in initial stages)
+used a batch size of 32 and observed not batch size should not be too high(less specific) or too low(rapid variations problem) and finally achieved some good results with 32
+
+Refer to report.html for other information
+
+d (ii)
+-------
+
+"Deep Dream is a feature visualization technique in deep learning that synthesizes images that strongly activate network layers"-MATLAB 
+this is inbuilt matlab function that can be used to visualize features learned by layers
+when we see the images we can see that clearly first conv layer(convlayer1) is trying to detect primary features of an image which is edges along different directions like some vertical and some
+horizontal edge detetion images around center.
+When we go into deep we seen see that it is learning noise patterns of the images which can be observed from convlayer2 and later when we go more deeper it becomes hard to say exactly.
+
+d(iii)
+--------
+with activation function ofmatlab we can see that this is an easy task to do. we can observe that first edges are been detected and going into deep we try to represent 
+different noise patterns of the image and we can still see the image and at the end all these combine (after transposed and convlayer4) to retrieve original image
+
+e(iii)
+--------
+for 'cameraman.tif'
+we trained the image on digit data sets and we can an image which is not from the same data set and the network is not trained for this image and gaussian dncnn model is
+trained for different datasets so we expect that our network performs poor than pretrained model though it is gaussian as poisson can be approximated to gaussian and we can see 
+the patterns of digits on blocks of cameraman.tif because we also detect image primary features and reconstruct them in the circuit so this image is not a validation for our network
+But we can see that we obtained better rmse and ssims for digit images when we train it for both our and pretrained network. If we train our images from the dataset of 
+cameraman.tif i think we can achieve better results.
+
+
+
