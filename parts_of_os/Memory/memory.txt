@@ -1,0 +1,13 @@
+1)
+r = (struct run*)v;
+r -> next = kmem.freelist;
+kmem.freelist = r;
+:- when we see kfree in kalloc.c r is a run struct and the above code makes page pointing by v in the top of freelist i.e., free the page of the physical memory pointed at by v
+
+2)
+In vm.c -> walkpgdir function
+pde = &pgdir[PDX[va]] => pde points to PTE i.e.,. first 20 bits of *pde is PA of PTE 
+pgtab = (pte_t*)p2v(pte_addr(*pde)) -> pte_addr(*pde) gives the first 20 bits followed by zeros     which is physical address -> p2v(pte_addr(*pde)) gives the base of pte and (pte_t *)&pgtab[ptx(va)]  gives the pointer to given page entry in PTE.
+
+The above answer is based on following framework
+pgdir -> pte -> page(in physical memory) 
