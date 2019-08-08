@@ -1,0 +1,112 @@
+./a.out r 25 0
+Reader 4, data: 0
+Reader 3, data: 0
+Reader 7, data: 0
+Reader 5, data: 0
+Reader 1, data: 0
+Reader 14, data: 0
+Reader 2, data: 0
+Reader 10, data: 0
+Reader 8, data: 0
+Reader 16, data: 0
+Reader 11, data: 0
+Reader 18, data: 0
+Reader 9, data: 0
+Reader 13, data: 0
+Reader 6, data: 0
+Reader 15, data: 0
+Reader 17, data: 0
+Reader 12, data: 0
+Reader 19, data: 0
+Reader 20, data: 0
+Reader 21, data: 0
+Reader 22, data: 0
+Reader 23, data: 0
+Reader 24, data: 0
+Reader 25, data: 0
+
+
+ ./a.out w 25 0
+Writer 1, data: 1
+Writer 2, data: 2
+Writer 3, data: 3
+Writer 4, data: 4
+Writer 5, data: 5
+Writer 6, data: 6
+Writer 7, data: 7
+Writer 8, data: 8
+Writer 9, data: 9
+Writer 10, data: 10
+Writer 11, data: 11
+Writer 12, data: 12
+Writer 13, data: 13
+Writer 14, data: 14
+Writer 15, data: 15
+Writer 16, data: 16
+Writer 17, data: 17
+Writer 18, data: 18
+Writer 19, data: 19
+Writer 20, data: 20
+Writer 21, data: 21
+Writer 22, data: 22
+Writer 23, data: 23
+Writer 24, data: 24
+Writer 25, data: 25
+
+
+./a.out r 25 0 w 5 1 r 5 1
+Reader 2, data: 0
+Reader 5, data: 0
+Reader 3, data: 0
+Reader 4, data: 0
+Reader 1, data: 0
+Reader 6, data: 0
+Reader 7, data: 0
+Reader 9, data: 0
+Reader 8, data: 0
+Reader 11, data: 0
+Reader 15, data: 0
+Reader 16, data: 0
+Reader 17, data: 0
+Reader 18, data: 0
+Reader 19, data: 0
+Reader 20, data: 0
+Reader 21, data: 0
+Reader 22, data: 0
+Reader 23, data: 0
+Reader 24, data: 0
+Reader 25, data: 0
+Reader 14, data: 0
+Reader 13, data: 0
+Reader 12, data: 0
+Reader 10, data: 0
+Writer 1, data: 1
+Writer 3, data: 2
+Writer 2, data: 3
+Writer 5, data: 4
+Writer 4, data: 5
+Reader 26, data: 5
+Reader 28, data: 5
+Reader 29, data: 5
+Reader 30, data: 5
+Reader 27, data: 5
+
+
+./a.out w 5 0 r 5 1 w 5 2
+Writer 1, data: 1
+Writer 2, data: 2
+Writer 6, data: 3
+Writer 4, data: 4
+Writer 5, data: 5
+Writer 7, data: 6
+Writer 8, data: 7
+Writer 9, data: 8
+Writer 10, data: 9
+Writer 3, data: 10
+Reader 2, data: 10
+Reader 1, data: 10
+Reader 3, data: 10
+Reader 5, data: 10
+Reader 4, data: 10
+
+

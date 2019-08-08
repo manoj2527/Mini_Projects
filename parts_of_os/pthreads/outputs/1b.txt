@@ -1,0 +1,9 @@
+./a.out 
+Counter: 100000 
+
+./a.out 
+Counter: 100000 
+
+./a.out 
+Counter: 100000 
+

@@ -1,0 +1,9 @@
+./a.out 
+Counter: 97480 
+
+./a.out 
+Counter: 98209 
+
+./a.out 
+Counter: 98142 
+
